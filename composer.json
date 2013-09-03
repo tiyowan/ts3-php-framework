@@ -1,0 +1,19 @@
+{
+    "name": "planetteamspeak/ts3-php-framework",
+    "version": "1.1.21",
+    "type": "library",
+    "keywords": ["teamspeak"],
+    "homepage": "http://addons.teamspeak.com/directory/tools/integration/TeamSpeak-3-PHP-Framework.html",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Sven 'ScP' Paulsen"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.1"
+    }
+    "autoload": {
+        "classmap": ["libraries/"]
+    }
+}
