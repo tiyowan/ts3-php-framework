@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="TeamSpeak.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TeamSpeak 3 PHP Framework
-   &#160;<span id="projectnumber">1.1.21</span>
+   &#160;<span id="projectnumber">1.1.22</span>
    </div>
    <div id="projectbrief">Copyright © Planet TeamSpeak. All rights reserved.</div>
   </td>
@@ -148,6 +148,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3df8e522842d6a197ee095e7e32af88a"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_speak3___helper___convert.html#a3df8e522842d6a197ee095e7e32af88a">version</a> ($version, $format=&quot;Y-m-d h:i:s&quot;)</td></tr>
 <tr class="memdesc:a3df8e522842d6a197ee095e7e32af88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a client-like formatted version of the TeamSpeak 3 version string.  <a href="#a3df8e522842d6a197ee095e7e32af88a">More...</a><br/></td></tr>
 <tr class="separator:a3df8e522842d6a197ee095e7e32af88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce6ada52807c57128bdd7a001f4de43"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_speak3___helper___convert.html#a0ce6ada52807c57128bdd7a001f4de43">versionShort</a> ($<a class="el" href="class_team_speak3___helper___convert.html#a3df8e522842d6a197ee095e7e32af88a">version</a>)</td></tr>
+<tr class="memdesc:a0ce6ada52807c57128bdd7a001f4de43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a client-like short-formatted version of the TeamSpeak 3 version string.  <a href="#a0ce6ada52807c57128bdd7a001f4de43">More...</a><br/></td></tr>
+<tr class="separator:a0ce6ada52807c57128bdd7a001f4de43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9f1557a852d6c51fc71d8f5199594f4"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_speak3___helper___convert.html#af9f1557a852d6c51fc71d8f5199594f4">imageMimeType</a> ($binary)</td></tr>
 <tr class="memdesc:af9f1557a852d6c51fc71d8f5199594f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to detect the type of an image by a given string and returns it.  <a href="#af9f1557a852d6c51fc71d8f5199594f4">More...</a><br/></td></tr>
 <tr class="separator:af9f1557a852d6c51fc71d8f5199594f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -739,7 +742,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_convert_8php_source.html#l00297">297</a> of file <a class="el" href="_convert_8php_source.html">Convert.php</a>.</p>
 
-<p>Referenced by <a class="el" href="_html_8php_source.html#l00290">TeamSpeak3_Viewer_Html\getCorpusTitle()</a>, and <a class="el" href="_node_2_abstract_8php_source.html#l00264">TeamSpeak3_Node_Abstract\getInfo()</a>.</p>
+<p>Referenced by <a class="el" href="_node_2_abstract_8php_source.html#l00264">TeamSpeak3_Node_Abstract\getInfo()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                                                             :i:s<span class="stringliteral">&quot;)</span></div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="stringliteral">  {</span></div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="stringliteral">    if(!$version instanceof TeamSpeak3_Helper_String)</span></div>
@@ -751,6 +754,51 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="stringliteral">    return ($buildno &lt;= 15001) ? $version : $version-&gt;section(&quot;</span>[<span class="stringliteral">&quot;)-&gt;append(&quot;</span>(<span class="stringliteral">&quot; . date($format, $buildno) . &quot;</span>)<span class="stringliteral">&quot;);</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="stringliteral">  }</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0ce6ada52807c57128bdd7a001f4de43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TeamSpeak3_Helper_Convert::versionShort </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$version</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a client-like short-formatted version of the TeamSpeak 3 version string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$version</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
+
+<p>Definition at line <a class="el" href="_convert_8php_source.html#l00315">315</a> of file <a class="el" href="_convert_8php_source.html">Convert.php</a>.</p>
+
+<p>Referenced by <a class="el" href="_html_8php_source.html#l00290">TeamSpeak3_Viewer_Html\getCorpusTitle()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span>(!$version instanceof <a class="code" href="class_team_speak3___helper___string.html" title="Helper class for string handling. ">TeamSpeak3_Helper_String</a>)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    {</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      $version = <span class="keyword">new</span> TeamSpeak3_Helper_String($version);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">return</span> $version-&gt;section(<span class="stringliteral">&quot; &quot;</span>, 0);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -785,26 +833,26 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="_convert_8php_source.html#l00315">315</a> of file <a class="el" href="_convert_8php_source.html">Convert.php</a>.</p>
+<p>Definition at line <a class="el" href="_convert_8php_source.html#l00331">331</a> of file <a class="el" href="_convert_8php_source.html">Convert.php</a>.</p>
 
 <p>Referenced by <a class="el" href="_html_8php_source.html#l00455">TeamSpeak3_Viewer_Html\getSuffixIconChannel()</a>, <a class="el" href="_html_8php_source.html#l00525">TeamSpeak3_Viewer_Html\getSuffixIconClient()</a>, and <a class="el" href="_html_8php_source.html#l00407">TeamSpeak3_Viewer_Html\getSuffixIconServer()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  {</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span>(!preg_match(<span class="stringliteral">&#39;/\A(?:(\xff\xd8\xff)|(GIF8[79]a)|(\x89PNG\x0d\x0a)|(BM)|(\x49\x49(\x2a\x00|\x00\x4a))|(FORM.{4}ILBM))/&#39;</span>, $binary, $matches))</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    {</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;application/octet-stream&quot;</span>;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    $type = array(</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      1 =&gt; <span class="stringliteral">&quot;image/jpeg&quot;</span>,</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      2 =&gt; <span class="stringliteral">&quot;image/gif&quot;</span>,</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      3 =&gt; <span class="stringliteral">&quot;image/png&quot;</span>,</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      4 =&gt; <span class="stringliteral">&quot;image/x-windows-bmp&quot;</span>,</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      5 =&gt; <span class="stringliteral">&quot;image/tiff&quot;</span>,</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      6 =&gt; <span class="stringliteral">&quot;image/x-ilbm&quot;</span>,</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    );</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">return</span> $type[count($matches)-1];</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  }</div>
+<div class="fragment"><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span>(!preg_match(<span class="stringliteral">&#39;/\A(?:(\xff\xd8\xff)|(GIF8[79]a)|(\x89PNG\x0d\x0a)|(BM)|(\x49\x49(\x2a\x00|\x00\x4a))|(FORM.{4}ILBM))/&#39;</span>, $binary, $matches))</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;application/octet-stream&quot;</span>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    }</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    $type = array(</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      1 =&gt; <span class="stringliteral">&quot;image/jpeg&quot;</span>,</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      2 =&gt; <span class="stringliteral">&quot;image/gif&quot;</span>,</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      3 =&gt; <span class="stringliteral">&quot;image/png&quot;</span>,</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      4 =&gt; <span class="stringliteral">&quot;image/x-windows-bmp&quot;</span>,</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      5 =&gt; <span class="stringliteral">&quot;image/tiff&quot;</span>,</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      6 =&gt; <span class="stringliteral">&quot;image/x-ilbm&quot;</span>,</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    );</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">return</span> $type[count($matches)-1];</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -817,7 +865,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_team_speak3___helper___convert.html">TeamSpeak3_Helper_Convert</a></li>
-    <li class="footer">Generated on Fri Jul 26 2013 20:29:55 for TeamSpeak 3 PHP Framework by
+    <li class="footer">Generated on Sun Sep 8 2013 15:14:42 for TeamSpeak 3 PHP Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

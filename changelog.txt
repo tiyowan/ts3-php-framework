@@ -9,6 +9,14 @@
    ! Important - Take note!
 ===============================================================================
 
+=== Release 1.1.22 - 15 Aug 2013 ===
+ ! upgrading your servers to 3.0.9 (build >= 1378383061) is recommended
+ + added TeamSpeak3_Helper_Convert::versionShort()
+ + added icons for server and client applications
+ * unified UTF-8 encoding in several methods
+ * TeamSpeak3_Node_Server::clientList() now includes client badges
+ * public legacy release
+
 === Release 1.1.21 - 26 Jul 2013 ===
  ! updated online and offline docs to Doxygen 1.8.4
  - fixed an issue where TeamSpeak3_Adapter_ServerQuery_Reply::toArray() could
@@ -26,7 +34,7 @@
  - removed outdated example scripts; check documentation instead
  * TeamSpeak3_Node_Server::sortFileList() now sorts existing folders first in 
    alphabetical order
- * public legacy release*
+ * public legacy release
 
 === Release 1.1.19 - 03 Jan 2013 ===
  + added support for the Opus audio codec
@@ -36,7 +44,7 @@
  * internal legacy release
 
 === Release 1.1.18 - 13 Nov 2012 ===
- ! upgrading your servers to 3.0.7 (build >= 1352818893) is mandatory
+ ! upgrading your servers to 3.0.7 (build >= 1352818893) is recommended
  ! TeamSpeak3_Node_Host::permissionList() now respects -new option and converts
    the new output containing group_id_end to the old format
  + added TeamSpeak3_Node_Host::permissionCats()
@@ -93,8 +101,6 @@
  * internal legacy release
 
 === Release 1.1.12 - 18 Feb 2012 ===
- ! unless any major/critical bugs are found, this will be the last version of
-   the framework before the official 2.0.0 release
  - TeamSpeak3_Viewer_Html::getCorpusName() no longer truncates name of channel
    spacers
  - fixed broken TeamSpeak3_Node_Server::snapshotDeploy() method
@@ -181,7 +187,7 @@
 
 === Release 1.1.4-beta - 05 Feb 2011 ===
  ! codebase converted to Zend Studio 8.0.0 project
- ! upgrading your servers to 3.0.0-beta31 (build >= 13537) is mandatory
+ ! upgrading your servers to 3.0.0-beta31 (build >= 13537) is recommended
  + added TeamSpeak3_Node_Server::clientGetNameByUid()
  + added TeamSpeak3_Node_Server::clientGetNameByDbid()
  + added TeamSpeak3_Node_Server::clientGetServerGroupsByDbid()
@@ -227,7 +233,7 @@
  * hotfix release
 
 === Release 1.1.1-beta - 28 Nov 2010 ===
- ! upgrading your servers to 3.0.0-beta30 (build >= 12910) is mandatory
+ ! upgrading your servers to 3.0.0-beta30 (build >= 12910) is recommended
  ! example pages have been extended with useful example applications
  ! implemented __sleep() and __wakeup() methods for TeamSpeak3_Node_Abstract
    objects which makes it possible to serialize and store them into persistent
@@ -278,7 +284,7 @@
  * hotfix release
 
 === Release 1.0.36-beta - 11 Oct 2010 ===
- ! upgrading your servers to 3.0.0-beta30 (build >= 12559) is mandatory
+ ! upgrading your servers to 3.0.0-beta30 (build >= 12559) is recommended
  ! converted online and offline docs to Doxygen 1.7.1
  - fixed a possible timeout issue with 3.0.0-beta30-pre servers
  - added missing comments for some undocumented class members
@@ -293,7 +299,7 @@
  - fixed several small issues
 
 === Release 1.0.34-beta - 29 Sep 2010 ===
- ! upgrading your servers to 3.0.0-beta29 (build >= 12463) is mandatory
+ ! upgrading your servers to 3.0.0-beta29 (build >= 12463) is recommended
  + added constants for different codec encryption modes
  + added TeamSpeak3_Helper_Signal
  + added TeamSpeak3_Helper_Signal_Handler
@@ -318,7 +324,7 @@
    the value of a specified config setting directly
 
 === Release 1.0.33-beta - 19 Sep 2010 ===
- ! upgrading your servers to 3.0.0-beta29 (build >= 12327) is mandatory
+ ! upgrading your servers to 3.0.0-beta29 (build >= 12327) is recommended
  ! example pages will no longer support outdated Internet Explorer versions
    so please be sure to use a modern browser
  + added TeamSpeak3_Node_Server::permReset()
@@ -338,7 +344,7 @@
  * internal release only
 
 === Release 1.0.31-beta - 12 Aug 2010 ===
- ! upgrading your servers to 3.0.0-beta26 (build >= 11927) is mandatory
+ ! upgrading your servers to 3.0.0-beta26 (build >= 11927) is recommended
  ! removed "16x16_" prefix from viewer images and updated several icons
  + added some new demo scripts to the example pages
  + added TeamSpeak3_Node_Server::serverGroupGetProfiles()

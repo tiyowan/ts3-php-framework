@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="TeamSpeak.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TeamSpeak 3 PHP Framework
-   &#160;<span id="projectnumber">1.1.21</span>
+   &#160;<span id="projectnumber">1.1.22</span>
    </div>
    <div id="projectbrief">Copyright © Planet TeamSpeak. All rights reserved.</div>
   </td>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_u_d_p_8php_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @file</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * TeamSpeak 3 PHP Framework</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * $Id: UDP.php 7/26/2013 8:28:58 scp@orilla $</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * $Id: UDP.php 8/15/2013 5:45:17 scp@orilla $</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * This program is free software: you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('_u_d_p_8php_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * @package   TeamSpeak3</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * @version   1.1.21</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * @version   1.1.22</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> * @author    Sven &#39;ScP&#39; Paulsen</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
@@ -160,7 +160,7 @@ $(document).ready(function(){initNavTree('_u_d_p_8php_source.html','');});
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span>($this-&gt;stream === FALSE)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_team_speak3___transport___exception.html" title="Enhanced exception class for TeamSpeak3_Transport_Abstract objects. ">TeamSpeak3_Transport_Exception</a>(utf8_encode($errstr), $errno);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_team_speak3___transport___exception.html" title="Enhanced exception class for TeamSpeak3_Transport_Abstract objects. ">TeamSpeak3_Transport_Exception</a>(<a class="code" href="class_team_speak3___helper___string.html#a475f5a602d67dd0568fb8c86352c88a0" title="Returns a TeamSpeak3_Helper_String object for thegiven string. ">TeamSpeak3_Helper_String::factory</a>($errstr)-&gt;toUtf8()-&gt;toString(), $errno);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    @stream_set_timeout($this-&gt;stream, $timeout);</div>
@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('_u_d_p_8php_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8c6eb96e4942c21c15d2738fe9c923ec.html">TeamSpeak3</a></li><li class="navelem"><a class="el" href="dir_f603e06b45f250df82d371a578f5098e.html">Transport</a></li><li class="navelem"><a class="el" href="_u_d_p_8php.html">UDP.php</a></li>
-    <li class="footer">Generated on Fri Jul 26 2013 20:29:54 for TeamSpeak 3 PHP Framework by
+    <li class="footer">Generated on Sun Sep 8 2013 15:14:41 for TeamSpeak 3 PHP Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>
