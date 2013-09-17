@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="TeamSpeak.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TeamSpeak 3 PHP Framework
-   &#160;<span id="projectnumber">1.1.21</span>
+   &#160;<span id="projectnumber">1.1.22</span>
    </div>
    <div id="projectbrief">Copyright © Planet TeamSpeak. All rights reserved.</div>
   </td>
@@ -133,7 +133,10 @@ Features</h1>
 Usage Examples</h1>
 <h2><a class="anchor" id="example1"></a>
 1. Kick a single Client from a Virtual Server</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// kick the client with ID 123 from the server</span></div>
@@ -146,7 +149,10 @@ Usage Examples</h1>
 <div class="line">$ts3_VirtualServer-&gt;clientGetByName(<span class="stringliteral">&quot;ScP&quot;</span>)-&gt;kick(<a class="code" href="class_team_speak3.html#ae9df1f0980b1d3e9638b3a8084cc5234" title="5: kick client from server ">TeamSpeak3::KICK_SERVER</a>, <span class="stringliteral">&quot;evil kick XD&quot;</span>);</div>
 </div><!-- fragment --><h2><a class="anchor" id="example2"></a>
 2. Kick all Clients from a Virtual Server</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// query clientlist from virtual server</span></div>
@@ -155,15 +161,37 @@ Usage Examples</h1>
 <div class="line"><span class="comment">// kick all clients online with a single command</span></div>
 <div class="line">$ts3_VirtualServer-&gt;clientKick($arr_ClientList, <a class="code" href="class_team_speak3.html#ae9df1f0980b1d3e9638b3a8084cc5234" title="5: kick client from server ">TeamSpeak3::KICK_SERVER</a>, <span class="stringliteral">&quot;evil kick XD&quot;</span>);</div>
 </div><!-- fragment --><h2><a class="anchor" id="example3"></a>
-3. Modify the Settings of each Virtual Server</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
+3. Print the Nicknames of connected Android Clients</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// query clientlist from virtual server and filter by platform</span></div>
+<div class="line">$arr_ClientList = $ts3_VirtualServer-&gt;clientList(array(<span class="stringliteral">&quot;client_platform&quot;</span> =&gt; <span class="stringliteral">&quot;Android&quot;</span>));</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// walk through list of clients</span></div>
+<div class="line"><span class="keywordflow">foreach</span>($arr_ClientList as $ts3_Client)</div>
+<div class="line">{</div>
+<div class="line">  echo $ts3_Client . <span class="stringliteral">&quot; is using &quot;</span> . $ts3_Client[<span class="stringliteral">&quot;client_platform&quot;</span>] . <span class="stringliteral">&quot;&lt;br /&gt;\n&quot;</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="example4"></a>
+4. Modify the Settings of each Virtual Server</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
 <div class="line">$ts3_ServerInstance = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// walk through list of virtual servers</span></div>
 <div class="line"><span class="keywordflow">foreach</span>($ts3_ServerInstance as $ts3_VirtualServer)</div>
 <div class="line">{</div>
-<div class="line">  <span class="comment">// modify the virtual servers hostbanner URL only</span></div>
+<div class="line">  <span class="comment">// modify the virtual servers hostbanner URL only using the ArrayAccess interface</span></div>
 <div class="line">  $ts3_VirtualServer[<span class="stringliteral">&quot;virtualserver_hostbanner_gfx_url&quot;</span>] = <span class="stringliteral">&quot;http://www.example.com/banners/banner01_468x60.jpg&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// modify the virtual servers hostbanner URL only using property overloading</span></div>
+<div class="line">  $ts3_VirtualServer-&gt;virtualserver_hostbanner_gfx_url = <span class="stringliteral">&quot;http://www.example.com/banners/banner01_468x60.jpg&quot;</span>;</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// modify multiple virtual server properties at once</span></div>
 <div class="line">  $ts3_VirtualServer-&gt;modify(array(</div>
@@ -172,19 +200,25 @@ Usage Examples</h1>
 <div class="line">    <span class="stringliteral">&quot;virtualserver_hostbutton_gfx_url&quot;</span> =&gt; <span class="stringliteral">&quot;http://www.example.com/buttons/button01_24x24.jpg&quot;</span>,</div>
 <div class="line">  ));</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="example4"></a>
-4. Create a Privilege Key for a Server Group</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example5"></a>
+5. Create a Privilege Key for a Server Group</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
-<div class="line"><span class="comment">// spawn an object for the group using a specified nickname</span></div>
+<div class="line"><span class="comment">// spawn an object for the group using a specified name</span></div>
 <div class="line">$arr_ServerGroup = $ts3_VirtualServer-&gt;serverGroupGetByName(<span class="stringliteral">&quot;Admins&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// create the privilege key</span></div>
 <div class="line">$ts3_PrivilegeKey = $arr_ServerGroup-&gt;privilegeKeyCreate();</div>
-</div><!-- fragment --><h2><a class="anchor" id="example5"></a>
-5. Modify the Permissions of Admins on each Virtual Server</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example6"></a>
+6. Modify the Permissions of Admins on each Virtual Server</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
 <div class="line">$ts3_ServerInstance = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// walk through list of virtual servers</span></div>
@@ -199,9 +233,12 @@ Usage Examples</h1>
 <div class="line">  <span class="comment">// revoke an existing permission</span></div>
 <div class="line">  $ts3_ServerGroup-&gt;permRemove(<span class="stringliteral">&quot;b_virtualserver_modify_maxclients&quot;</span>);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="example6"></a>
-6. Create a new Virtual Server</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example7"></a>
+7. Create a new Virtual Server</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
 <div class="line">$ts3_ServerInstance = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// create a virtual server and get its ID</span></div>
@@ -212,9 +249,12 @@ Usage Examples</h1>
 <div class="line">  <span class="stringliteral">&quot;virtualserver_hostbutton_url&quot;</span>     =&gt; <span class="stringliteral">&quot;http://www.example.com&quot;</span>,</div>
 <div class="line">  <span class="stringliteral">&quot;virtualserver_hostbutton_gfx_url&quot;</span> =&gt; <span class="stringliteral">&quot;http://www.example.com/buttons/button01_24x24.jpg&quot;</span>,</div>
 <div class="line">));</div>
-</div><!-- fragment --><h2><a class="anchor" id="example7"></a>
-7. Create a hierarchical Channel Stucture</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example8"></a>
+8. Create a hierarchical Channel Stucture</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// create a top-level channel and get its ID</span></div>
@@ -233,9 +273,12 @@ Usage Examples</h1>
 <div class="line">  <span class="stringliteral">&quot;channel_flag_permanent&quot;</span> =&gt; TRUE,</div>
 <div class="line">  <span class="stringliteral">&quot;cpid&quot;</span>                   =&gt; $top_cid,</div>
 <div class="line">));</div>
-</div><!-- fragment --><h2><a class="anchor" id="example8"></a>
-8. Send a Text Message to outdated Clients</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example9"></a>
+9. Send a Text Message to outdated Clients</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// connect to default update server</span></div>
@@ -253,9 +296,12 @@ Usage Examples</h1>
 <div class="line">    $ts3_Client-&gt;message(<span class="stringliteral">&quot;[COLOR=red]your client is [B]outdated[/B]... update to [U]&quot;</span> . $ts3_UpdateServer-&gt;getClientVersion() . <span class="stringliteral">&quot;[/U] now![/COLOR]&quot;</span>);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="example9"></a>
-9. Check if the Server Instance is Outdated or Blacklisted</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example10"></a>
+10. Check if the Server Instance is Outdated or Blacklisted</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the server instance</span></div>
 <div class="line">$ts3_ServerInstance = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// connect to default update server</span></div>
@@ -275,16 +321,22 @@ Usage Examples</h1>
 <div class="line">{</div>
 <div class="line">  $ts3_ServerInstance-&gt;message(<span class="stringliteral">&quot;[COLOR=red]your server is [B]blacklisted[/B]... disconnect now![/COLOR]&quot;</span>);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="example10"></a>
-10. Create a simple TSViewer for your Website</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example11"></a>
+11. Create a simple TSViewer for your Website</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// build and display HTML treeview using custom image paths (remote icons will be embedded using data URI sheme)</span></div>
 <div class="line">echo $ts3_VirtualServer-&gt;getViewer(<span class="keyword">new</span> <a class="code" href="class_team_speak3___viewer___html.html" title="Renders nodes used in HTML-based TeamSpeak 3 viewers. ">TeamSpeak3_Viewer_Html</a>(<span class="stringliteral">&quot;images/viewericons/&quot;</span>, <span class="stringliteral">&quot;images/countryflags/&quot;</span>, <span class="stringliteral">&quot;data:image&quot;</span>));</div>
-</div><!-- fragment --><h2><a class="anchor" id="example11"></a>
-11. Update all outdated Audio Codecs to their Opus equivalent</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example12"></a>
+12. Update all outdated Audio Codecs to their Opus equivalent</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// walk through list of chanels</span></div>
@@ -299,9 +351,12 @@ Usage Examples</h1>
 <div class="line">    $ts3_Channel[<span class="stringliteral">&quot;channel_codec&quot;</span>] = <a class="code" href="class_team_speak3.html#ac8a12a60994f2949c63e21d8915c8afa" title="3: opus voice (interactive) ">TeamSpeak3::CODEC_OPUS_VOICE</a>;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="example12"></a>
-12. Display the Avatar of a connected User</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example13"></a>
+13. Display the Avatar of a connected User</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// spawn an object for the client using a specified nickname</span></div>
@@ -313,9 +368,12 @@ Usage Examples</h1>
 <div class="line"><span class="comment">// send header and display image</span></div>
 <div class="line">header(<span class="stringliteral">&quot;Content-Type: &quot;</span> . <a class="code" href="class_team_speak3___helper___convert.html#af9f1557a852d6c51fc71d8f5199594f4" title="Tries to detect the type of an image by a given string and returns it. ">TeamSpeak3_Helper_Convert::imageMimeType</a>($avatar));</div>
 <div class="line">echo $avatar;</div>
-</div><!-- fragment --><h2><a class="anchor" id="example13"></a>
-13. Create a Simple Bot waiting for Events</h2>
-<div class="fragment"><div class="line"><span class="comment">// connect to local server in non-blocking mode, authenticate and spawn an object for the virtual server on port 9987</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example14"></a>
+14. Create a Simple Bot waiting for Events</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server in non-blocking mode, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&amp;blocking=0&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// get notified on incoming private messages</span></div>
@@ -332,9 +390,15 @@ Usage Examples</h1>
 <div class="line">{</div>
 <div class="line">  echo <span class="stringliteral">&quot;Client &quot;</span> . $event[<span class="stringliteral">&quot;invokername&quot;</span>] . <span class="stringliteral">&quot; sent textmessage: &quot;</span> . $event[<span class="stringliteral">&quot;msg&quot;</span>];</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="example14"></a>
-14. Handle Errors using Exceptions</h2>
-<div class="fragment"><div class="line"><span class="keywordflow">try</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="example15"></a>
+15. Handle Errors using Exceptions and Custom Error Messages</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// register custom error message (supported placeholders are: %file, %line, %code and %mesg)</span></div>
+<div class="line"><a class="code" href="class_team_speak3___exception.html#a0b2ddaae2a81d54b3f730f7661039c7a" title="Registers a custom error message to $code. ">TeamSpeak3_Exception::registerCustomMessage</a>(0x300, <span class="stringliteral">&quot;The specified channel does not exist; server said: %mesg&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="keywordflow">try</span></div>
 <div class="line">{</div>
 <div class="line">  <span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
 <div class="line">  $ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
@@ -347,13 +411,39 @@ Usage Examples</h1>
 <div class="line">  <span class="comment">// print the error message returned by the server</span></div>
 <div class="line">  echo <span class="stringliteral">&quot;Error &quot;</span> . $e-&gt;getCode() . <span class="stringliteral">&quot;: &quot;</span> . $e-&gt;getMessage();</div>
 <div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="example16"></a>
+16. Save Connection State in Persistent Session Variable</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// start a PHP session</span></div>
+<div class="line">session_start();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line">$ts3_VirtualServer = <a class="code" href="class_team_speak3.html#aed403cdb559cae556a94a0d9823bcaf4" title="Factory for TeamSpeak3_Adapter_Abstract classes. ">TeamSpeak3::factory</a>(<span class="stringliteral">&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// save connection state (including login and selected virtual server)</span></div>
+<div class="line">$_SESSION[<span class="stringliteral">&quot;_TS3&quot;</span>] = serialize($ts3_VirtualServer);</div>
+</div><!-- fragment --><h2><a class="anchor" id="example17"></a>
+17. Restore Connection State from Persistent Session Variable</h2>
+<div class="fragment"><div class="line"><span class="comment">// load framework files</span></div>
+<div class="line">require_once(<span class="stringliteral">&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// start a PHP session</span></div>
+<div class="line">session_start();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// restore connection state</span></div>
+<div class="line">$ts3_VirtualServer = unserialize($_SESSION[<span class="stringliteral">&quot;_TS3&quot;</span>]);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// send a text message to the server</span></div>
+<div class="line">$ts3_VirtualServer-&gt;message(<span class="stringliteral">&quot;Hello World!&quot;</span>);</div>
 </div><!-- fragment --><p>Speed up new development and reduce maintenance costs by using the TS3 PHP Framework! </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jul 26 2013 20:29:56 for TeamSpeak 3 PHP Framework by
+    <li class="footer">Generated on Sun Sep 8 2013 15:14:43 for TeamSpeak 3 PHP Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="TeamSpeak.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TeamSpeak 3 PHP Framework
-   &#160;<span id="projectnumber">1.1.21</span>
+   &#160;<span id="projectnumber">1.1.22</span>
    </div>
    <div id="projectbrief">Copyright © Planet TeamSpeak. All rights reserved.</div>
   </td>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_team_speak3_8php_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @file</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * TeamSpeak 3 PHP Framework</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * $Id: TeamSpeak3.php 7/26/2013 8:28:58 scp@orilla $</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * $Id: TeamSpeak3.php 8/15/2013 5:45:17 scp@orilla $</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * This program is free software: you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('_team_speak3_8php_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * @package   TeamSpeak3</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * @version   1.1.21</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * @version   1.1.22</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> * @author    Sven &#39;ScP&#39; Paulsen</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('_team_speak3_8php_source.html','');});
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  /**</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">   * TeamSpeak 3 PHP Framework version.</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="class_team_speak3.html#a7d31dad145adb2a70ac9ae92adeebb5b">   62</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="class_team_speak3.html#a7d31dad145adb2a70ac9ae92adeebb5b" title="TeamSpeak 3 PHP Framework version. ">LIB_VERSION</a> = <span class="stringliteral">&quot;1.1.21&quot;</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="class_team_speak3.html#a7d31dad145adb2a70ac9ae92adeebb5b">   62</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="class_team_speak3.html#a7d31dad145adb2a70ac9ae92adeebb5b" title="TeamSpeak 3 PHP Framework version. ">LIB_VERSION</a> = <span class="stringliteral">&quot;1.1.22&quot;</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">/*@</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">   * TeamSpeak 3 protocol separators.</span></div>
@@ -748,257 +748,353 @@ $(document).ready(function(){initNavTree('_team_speak3_8php_source.html','');});
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment"> * \subsection example1 1. Kick a single Client from a Virtual Server</span></div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment"> *   // kick the client with ID 123 from the server</span></div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientKick(123, TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment"> *   // spawn an object for the client by unique identifier and do the kick</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientGetByUid(&quot;FPMPSC6MXqXq751dX7BKV0JniSo=&quot;)-&gt;kick(TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment"> *   // kick the client with ID 123 from the server</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientKick(123, TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="comment"> *   // spawn an object for the client by current nickname and do the kick</span></div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientGetByName(&quot;ScP&quot;)-&gt;kick(TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment"> * \subsection example2 2. Kick all Clients from a Virtual Server</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment"> *   // query clientlist from virtual server</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment"> *   $arr_ClientList = $ts3_VirtualServer-&gt;clientList();</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="comment"> *   // spawn an object for the client by unique identifier and do the kick</span></div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientGetByUid(&quot;FPMPSC6MXqXq751dX7BKV0JniSo=&quot;)-&gt;kick(TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="comment"> *   // spawn an object for the client by current nickname and do the kick</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientGetByName(&quot;ScP&quot;)-&gt;kick(TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment"> * \subsection example2 2. Kick all Clients from a Virtual Server</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment"> *   // kick all clients online with a single command</span></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientKick($arr_ClientList, TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment"> * \subsection example3 3. Modify the Settings of each Virtual Server</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment"> *   // walk through list of virtual servers</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="comment"> *   foreach($ts3_ServerInstance as $ts3_VirtualServer)</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment"> *     // modify the virtual servers hostbanner URL only</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment"> *     $ts3_VirtualServer[&quot;virtualserver_hostbanner_gfx_url&quot;] = &quot;http://www.example.com/banners/banner01_468x60.jpg&quot;;</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment"> *   // query clientlist from virtual server</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment"> *   $arr_ClientList = $ts3_VirtualServer-&gt;clientList();</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment"> *   // kick all clients online with a single command</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;clientKick($arr_ClientList, TeamSpeak3::KICK_SERVER, &quot;evil kick XD&quot;);</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="comment"> * \subsection example3 3. Print the Nicknames of connected Android Clients</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment"> *     // modify multiple virtual server properties at once</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment"> *     $ts3_VirtualServer-&gt;modify(array(</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment"> *       &quot;virtualserver_hostbutton_tooltip&quot; =&gt; &quot;My Company&quot;,</span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment"> *       &quot;virtualserver_hostbutton_url&quot;     =&gt; &quot;http://www.example.com&quot;,</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment"> *       &quot;virtualserver_hostbutton_gfx_url&quot; =&gt; &quot;http://www.example.com/buttons/button01_24x24.jpg&quot;,</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment"> *     ));</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="comment"> * \subsection example4 4. Create a Privilege Key for a Server Group</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment"> *   // spawn an object for the group using a specified nickname</span></div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment"> *   $arr_ServerGroup = $ts3_VirtualServer-&gt;serverGroupGetByName(&quot;Admins&quot;);</span></div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment"> *   // create the privilege key</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment"> *   $ts3_PrivilegeKey = $arr_ServerGroup-&gt;privilegeKeyCreate();</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment"> *   // query clientlist from virtual server and filter by platform</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment"> *   $arr_ClientList = $ts3_VirtualServer-&gt;clientList(array(&quot;client_platform&quot; =&gt; &quot;Android&quot;));</span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment"> *   // walk through list of clients</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment"> *   foreach($arr_ClientList as $ts3_Client)</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="comment"> *     echo $ts3_Client . &quot; is using &quot; . $ts3_Client[&quot;client_platform&quot;] . &quot;&lt;br /&gt;\n&quot;;</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment"> * \subsection example4 4. Modify the Settings of each Virtual Server</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment"> * \subsection example5 5. Modify the Permissions of Admins on each Virtual Server</span></div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="comment"> *   // walk through list of virtual servers</span></div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="comment"> *   foreach($ts3_ServerInstance as $ts3_VirtualServer)</span></div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="comment"> *     // identify the most powerful group on the virtual server</span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="comment"> *     $ts3_ServerGroup = $ts3_VirtualServer-&gt;serverGroupIdentify();</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment"> *     // assign a new permission</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment"> *     $ts3_ServerGroup-&gt;permAssign(&quot;b_virtualserver_modify_hostbanner&quot;, TRUE);</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment"> *     // revoke an existing permission</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment"> *     $ts3_ServerGroup-&gt;permRemove(&quot;b_virtualserver_modify_maxclients&quot;);</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="comment"> * \subsection example6 6. Create a new Virtual Server</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment"> *   // create a virtual server and get its ID</span></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment"> *   $new_sid = $ts3_ServerInstance-&gt;serverCreate(array(</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment"> *     &quot;virtualserver_name&quot;               =&gt; &quot;My TeamSpeak 3 Server&quot;,</span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment"> *     &quot;virtualserver_maxclients&quot;         =&gt; 64,</span></div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment"> *     &quot;virtualserver_hostbutton_tooltip&quot; =&gt; &quot;My Company&quot;,</span></div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment"> *     &quot;virtualserver_hostbutton_url&quot;     =&gt; &quot;http://www.example.com&quot;,</span></div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment"> *     &quot;virtualserver_hostbutton_gfx_url&quot; =&gt; &quot;http://www.example.com/buttons/button01_24x24.jpg&quot;,</span></div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment"> *   ));</span></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment"> * \subsection example7 7. Create a hierarchical Channel Stucture</span></div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment"> *   // create a top-level channel and get its ID</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="comment"> *   $top_cid = $ts3_VirtualServer-&gt;channelCreate(array(</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="comment"> *     &quot;channel_name&quot;           =&gt; &quot;My Channel&quot;,</span></div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment"> *     &quot;channel_topic&quot;          =&gt; &quot;This is a top-level channel&quot;,</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment"> *     &quot;channel_codec&quot;          =&gt; TeamSpeak3::CODEC_SPEEX_WIDEBAND,</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment"> *     &quot;channel_flag_permanent&quot; =&gt; TRUE,</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment"> *   ));</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment"> *   // walk through list of virtual servers</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment"> *   foreach($ts3_ServerInstance as $ts3_VirtualServer)</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment"> *     // modify the virtual servers hostbanner URL only using the ArrayAccess interface</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment"> *     $ts3_VirtualServer[&quot;virtualserver_hostbanner_gfx_url&quot;] = &quot;http://www.example.com/banners/banner01_468x60.jpg&quot;;</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="comment"> *     // modify the virtual servers hostbanner URL only using property overloading</span></div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="comment"> *     $ts3_VirtualServer-&gt;virtualserver_hostbanner_gfx_url = &quot;http://www.example.com/banners/banner01_468x60.jpg&quot;;</span></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="comment"> *     // modify multiple virtual server properties at once</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment"> *     $ts3_VirtualServer-&gt;modify(array(</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment"> *       &quot;virtualserver_hostbutton_tooltip&quot; =&gt; &quot;My Company&quot;,</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment"> *       &quot;virtualserver_hostbutton_url&quot;     =&gt; &quot;http://www.example.com&quot;,</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment"> *       &quot;virtualserver_hostbutton_gfx_url&quot; =&gt; &quot;http://www.example.com/buttons/button01_24x24.jpg&quot;,</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment"> *     ));</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="comment"> * \subsection example5 5. Create a Privilege Key for a Server Group</span></div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment"> *   // spawn an object for the group using a specified name</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment"> *   $arr_ServerGroup = $ts3_VirtualServer-&gt;serverGroupGetByName(&quot;Admins&quot;);</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment"> *   // create the privilege key</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment"> *   $ts3_PrivilegeKey = $arr_ServerGroup-&gt;privilegeKeyCreate();</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment"> * \subsection example6 6. Modify the Permissions of Admins on each Virtual Server</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="comment"> *   // walk through list of virtual servers</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment"> *   foreach($ts3_ServerInstance as $ts3_VirtualServer)</span></div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment"> *     // identify the most powerful group on the virtual server</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment"> *     $ts3_ServerGroup = $ts3_VirtualServer-&gt;serverGroupIdentify();</span></div>
 <div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment"> *   // create a sub-level channel and get its ID</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment"> *   $sub_cid = $ts3_VirtualServer-&gt;channelCreate(array(</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment"> *     &quot;channel_name&quot;           =&gt; &quot;My Sub-Channel&quot;,</span></div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="comment"> *     &quot;channel_topic&quot;          =&gt; &quot;This is a sub-level channel&quot;,</span></div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment"> *     &quot;channel_codec&quot;          =&gt; TeamSpeak3::CODEC_SPEEX_NARROWBAND,</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment"> *     &quot;channel_flag_permanent&quot; =&gt; TRUE,</span></div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment"> *     &quot;cpid&quot;                   =&gt; $top_cid,</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment"> *   ));</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment"> * \subsection example8 8. Send a Text Message to outdated Clients</span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment"> *   // connect to default update server</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment"> *   $ts3_UpdateServer = TeamSpeak3::factory(&quot;update&quot;);</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment"> *   // walk through list of clients on virtual server</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment"> *   foreach($ts3_VirtualServer-&gt;clientList() as $ts3_Client)</span></div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment"> *     // skip query clients</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment"> *     if($ts3_Client[&quot;client_type&quot;]) continue;</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment"> *     // send test message if client build is outdated</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment"> *     if($ts3_Client-&gt;getRev() &lt; $ts3_UpdateServer-&gt;getClientRev())</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment"> *     {</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment"> *       $ts3_Client-&gt;message(&quot;[COLOR=red]your client is [B]outdated[/B]... update to [U]&quot; . $ts3_UpdateServer-&gt;getClientVersion() . &quot;[/U] now![/COLOR]&quot;);</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment"> *     }</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment"> * \subsection example9 9. Check if the Server Instance is Outdated or Blacklisted</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment"> *   // connect to default update server</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment"> *   $ts3_UpdateServer = TeamSpeak3::factory(&quot;update&quot;);</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment"> *   // send global text message if the server is outdated</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment"> *   if($ts3_ServerInstance-&gt;version(&quot;build&quot;) &lt; $ts3_UpdateServer-&gt;getServerRev())</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment"> *     $ts3_ServerInstance-&gt;message(&quot;[COLOR=red]your server is [B]outdated[/B]... update to [U]&quot; . $ts3_UpdateServer-&gt;getServerVersion() . &quot;[/U]  now![/COLOR]&quot;);</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment"> *   // connect to default blacklist server</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment"> *   $ts3_BlacklistServer = TeamSpeak3::factory(&quot;blacklist&quot;);</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment"> *   // send global text message if the server is blacklisted</span></div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="comment"> *   if($ts3_BlacklistServer-&gt;isBlacklisted($ts3_ServerInstance))</span></div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment"> *     $ts3_ServerInstance-&gt;message(&quot;[COLOR=red]your server is [B]blacklisted[/B]... disconnect now![/COLOR]&quot;);</span></div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment"> * \subsection example10 10. Create a simple TSViewer for your Website</span></div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment"> *   // build and display HTML treeview using custom image paths (remote icons will be embedded using data URI sheme)</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment"> *   echo $ts3_VirtualServer-&gt;getViewer(new TeamSpeak3_Viewer_Html(&quot;images/viewericons/&quot;, &quot;images/countryflags/&quot;, &quot;data:image&quot;));</span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment"> * \subsection example11 11. Update all outdated Audio Codecs to their Opus equivalent</span></div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment"> *   // walk through list of chanels</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment"> *   foreach($ts3_VirtualServer-&gt;channelList() as $ts3_Channel)</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment"> *     if($ts3_Channel[&quot;channel_codec&quot;] == TeamSpeak3::CODEC_CELT_MONO)</span></div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment"> *     {</span></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment"> *       $ts3_Channel[&quot;channel_codec&quot;] = TeamSpeak3::CODEC_OPUS_MUSIC;</span></div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment"> *     }</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"> *     elseif($ts3_Channel[&quot;channel_codec&quot;] != TeamSpeak3::CODEC_OPUS_MUSIC)</span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment"> *     {</span></div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment"> *       $ts3_Channel[&quot;channel_codec&quot;] = TeamSpeak3::CODEC_OPUS_VOICE;</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"> *     }</span></div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment"> * \subsection example12 12. Display the Avatar of a connected User</span></div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="comment"> *   // spawn an object for the client using a specified nickname</span></div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment"> *   $ts3_Client = $ts3_VirtualServer-&gt;clientGetByName(&quot;John Doe&quot;);</span></div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;<span class="comment"> *   // download the clients avatar file</span></div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;<span class="comment"> *   $avatar = $ts3_Client-&gt;avatarDownload();</span></div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="comment"> *   // send header and display image</span></div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="comment"> *   header(&quot;Content-Type: &quot; . TeamSpeak3_Helper_Convert::imageMimeType($avatar));</span></div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="comment"> *   echo $avatar;</span></div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment"> * \subsection example13 13. Create a Simple Bot waiting for Events</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="comment"> *   // connect to local server in non-blocking mode, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&amp;blocking=0&quot;);</span></div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;<span class="comment"> *   // get notified on incoming private messages</span></div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;notifyRegister(&quot;textprivate&quot;);</span></div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;<span class="comment"> *   // register a callback for notifyTextmessage events </span></div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;<span class="comment"> *   TeamSpeak3_Helper_Signal::getInstance()-&gt;subscribe(&quot;notifyTextmessage&quot;, &quot;onTextmessage&quot;);</span></div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment"> *   </span></div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="comment"> *   // wait for events</span></div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;<span class="comment"> *   while(1) $ts3_VirtualServer-&gt;getAdapter()-&gt;wait();</span></div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="comment"> *  </span></div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;<span class="comment"> *   // define a callback function</span></div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;<span class="comment"> *   function onTextmessage(TeamSpeak3_Adapter_ServerQuery_Event $event, TeamSpeak3_Node_Host $host)</span></div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="comment"> *     echo &quot;Client &quot; . $event[&quot;invokername&quot;] . &quot; sent textmessage: &quot; . $event[&quot;msg&quot;];</span></div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment"> *     // assign a new permission</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment"> *     $ts3_ServerGroup-&gt;permAssign(&quot;b_virtualserver_modify_hostbanner&quot;, TRUE);</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="comment"> *     // revoke an existing permission</span></div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment"> *     $ts3_ServerGroup-&gt;permRemove(&quot;b_virtualserver_modify_maxclients&quot;);</span></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment"> * \subsection example7 7. Create a new Virtual Server</span></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment"> *   // create a virtual server and get its ID</span></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment"> *   $new_sid = $ts3_ServerInstance-&gt;serverCreate(array(</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment"> *     &quot;virtualserver_name&quot;               =&gt; &quot;My TeamSpeak 3 Server&quot;,</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment"> *     &quot;virtualserver_maxclients&quot;         =&gt; 64,</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="comment"> *     &quot;virtualserver_hostbutton_tooltip&quot; =&gt; &quot;My Company&quot;,</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment"> *     &quot;virtualserver_hostbutton_url&quot;     =&gt; &quot;http://www.example.com&quot;,</span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment"> *     &quot;virtualserver_hostbutton_gfx_url&quot; =&gt; &quot;http://www.example.com/buttons/button01_24x24.jpg&quot;,</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment"> *   ));</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment"> * \subsection example8 8. Create a hierarchical Channel Stucture</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment"> *   // create a top-level channel and get its ID</span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment"> *   $top_cid = $ts3_VirtualServer-&gt;channelCreate(array(</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment"> *     &quot;channel_name&quot;           =&gt; &quot;My Channel&quot;,</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment"> *     &quot;channel_topic&quot;          =&gt; &quot;This is a top-level channel&quot;,</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment"> *     &quot;channel_codec&quot;          =&gt; TeamSpeak3::CODEC_SPEEX_WIDEBAND,</span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment"> *     &quot;channel_flag_permanent&quot; =&gt; TRUE,</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment"> *   ));</span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment"> *   // create a sub-level channel and get its ID</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment"> *   $sub_cid = $ts3_VirtualServer-&gt;channelCreate(array(</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment"> *     &quot;channel_name&quot;           =&gt; &quot;My Sub-Channel&quot;,</span></div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment"> *     &quot;channel_topic&quot;          =&gt; &quot;This is a sub-level channel&quot;,</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment"> *     &quot;channel_codec&quot;          =&gt; TeamSpeak3::CODEC_SPEEX_NARROWBAND,</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment"> *     &quot;channel_flag_permanent&quot; =&gt; TRUE,</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="comment"> *     &quot;cpid&quot;                   =&gt; $top_cid,</span></div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment"> *   ));</span></div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment"> * \subsection example9 9. Send a Text Message to outdated Clients</span></div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment"> *   // connect to default update server</span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment"> *   $ts3_UpdateServer = TeamSpeak3::factory(&quot;update&quot;);</span></div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment"> *   // walk through list of clients on virtual server</span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment"> *   foreach($ts3_VirtualServer-&gt;clientList() as $ts3_Client)</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment"> *     // skip query clients</span></div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment"> *     if($ts3_Client[&quot;client_type&quot;]) continue;</span></div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"> *     // send test message if client build is outdated</span></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment"> *     if($ts3_Client-&gt;getRev() &lt; $ts3_UpdateServer-&gt;getClientRev())</span></div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment"> *     {</span></div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment"> *       $ts3_Client-&gt;message(&quot;[COLOR=red]your client is [B]outdated[/B]... update to [U]&quot; . $ts3_UpdateServer-&gt;getClientVersion() . &quot;[/U] now![/COLOR]&quot;);</span></div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment"> *     }</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"> * \subsection example10 10. Check if the Server Instance is Outdated or Blacklisted</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the server instance</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment"> *   $ts3_ServerInstance = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/&quot;);</span></div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="comment"> *   // connect to default update server</span></div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment"> *   $ts3_UpdateServer = TeamSpeak3::factory(&quot;update&quot;);</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment"> *   // send global text message if the server is outdated</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="comment"> *   if($ts3_ServerInstance-&gt;version(&quot;build&quot;) &lt; $ts3_UpdateServer-&gt;getServerRev())</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="comment"> *     $ts3_ServerInstance-&gt;message(&quot;[COLOR=red]your server is [B]outdated[/B]... update to [U]&quot; . $ts3_UpdateServer-&gt;getServerVersion() . &quot;[/U]  now![/COLOR]&quot;);</span></div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="comment"> *   // connect to default blacklist server</span></div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="comment"> *   $ts3_BlacklistServer = TeamSpeak3::factory(&quot;blacklist&quot;);</span></div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="comment"> *   // send global text message if the server is blacklisted</span></div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment"> *   if($ts3_BlacklistServer-&gt;isBlacklisted($ts3_ServerInstance))</span></div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment"> *     $ts3_ServerInstance-&gt;message(&quot;[COLOR=red]your server is [B]blacklisted[/B]... disconnect now![/COLOR]&quot;);</span></div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="comment"> * \subsection example11 11. Create a simple TSViewer for your Website</span></div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;<span class="comment"> *   // build and display HTML treeview using custom image paths (remote icons will be embedded using data URI sheme)</span></div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="comment"> *   echo $ts3_VirtualServer-&gt;getViewer(new TeamSpeak3_Viewer_Html(&quot;images/viewericons/&quot;, &quot;images/countryflags/&quot;, &quot;data:image&quot;));</span></div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;<span class="comment"> * \subsection example12 12. Update all outdated Audio Codecs to their Opus equivalent</span></div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
 <div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="comment"> * \subsection example14 14. Handle Errors using Exceptions</span></div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="comment"> *   try</span></div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;<span class="comment"> *     // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;<span class="comment"> *     $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="comment"> *     // spawn an object for the channel using a specified name</span></div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;<span class="comment"> *     $ts3_Channel = $ts3_VirtualServer-&gt;channelGetByName(&quot;I do not exist&quot;);</span></div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;<span class="comment"> *   }</span></div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="comment"> *   catch(TeamSpeak3_Exception $e)</span></div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="comment"> *   {</span></div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="comment"> *     // print the error message returned by the server</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="comment"> *     echo &quot;Error &quot; . $e-&gt;getCode() . &quot;: &quot; . $e-&gt;getMessage();</span></div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;<span class="comment"> *   // walk through list of chanels</span></div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;<span class="comment"> *   foreach($ts3_VirtualServer-&gt;channelList() as $ts3_Channel)</span></div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="comment"> *     if($ts3_Channel[&quot;channel_codec&quot;] == TeamSpeak3::CODEC_CELT_MONO)</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="comment"> *     {</span></div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;<span class="comment"> *       $ts3_Channel[&quot;channel_codec&quot;] = TeamSpeak3::CODEC_OPUS_MUSIC;</span></div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;<span class="comment"> *     }</span></div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="comment"> *     elseif($ts3_Channel[&quot;channel_codec&quot;] != TeamSpeak3::CODEC_OPUS_MUSIC)</span></div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="comment"> *     {</span></div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="comment"> *       $ts3_Channel[&quot;channel_codec&quot;] = TeamSpeak3::CODEC_OPUS_VOICE;</span></div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="comment"> *     }</span></div>
 <div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;<span class="comment"> *   }</span></div>
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;<span class="comment"> * @endcode</span></div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;<span class="comment"> * Speed up new development and reduce maintenance costs by using the TS3 PHP Framework!</span></div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;<span class="comment"> * \subsection example13 13. Display the Avatar of a connected User</span></div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="comment"> *   // spawn an object for the client using a specified nickname</span></div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;<span class="comment"> *   $ts3_Client = $ts3_VirtualServer-&gt;clientGetByName(&quot;John Doe&quot;);</span></div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;<span class="comment"> *   // download the clients avatar file</span></div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;<span class="comment"> *   $avatar = $ts3_Client-&gt;avatarDownload();</span></div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="comment"> *   // send header and display image</span></div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="comment"> *   header(&quot;Content-Type: &quot; . TeamSpeak3_Helper_Convert::imageMimeType($avatar));</span></div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;<span class="comment"> *   echo $avatar;</span></div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;<span class="comment"> * \subsection example14 14. Create a Simple Bot waiting for Events</span></div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="comment"> *   // connect to local server in non-blocking mode, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&amp;blocking=0&quot;);</span></div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;<span class="comment"> *   // get notified on incoming private messages</span></div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;notifyRegister(&quot;textprivate&quot;);</span></div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;<span class="comment"> *   // register a callback for notifyTextmessage events </span></div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="comment"> *   TeamSpeak3_Helper_Signal::getInstance()-&gt;subscribe(&quot;notifyTextmessage&quot;, &quot;onTextmessage&quot;);</span></div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="comment"> *   </span></div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="comment"> *   // wait for events</span></div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;<span class="comment"> *   while(1) $ts3_VirtualServer-&gt;getAdapter()-&gt;wait();</span></div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;<span class="comment"> *  </span></div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;<span class="comment"> *   // define a callback function</span></div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;<span class="comment"> *   function onTextmessage(TeamSpeak3_Adapter_ServerQuery_Event $event, TeamSpeak3_Node_Host $host)</span></div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<span class="comment"> *     echo &quot;Client &quot; . $event[&quot;invokername&quot;] . &quot; sent textmessage: &quot; . $event[&quot;msg&quot;];</span></div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;<span class="comment"> * \subsection example15 15. Handle Errors using Exceptions and Custom Error Messages</span></div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;<span class="comment"> *   // register custom error message (supported placeholders are: %file, %line, %code and %mesg)</span></div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="comment"> *   TeamSpeak3_Exception::registerCustomMessage(0x300, &quot;The specified channel does not exist; server said: %mesg&quot;);</span></div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="comment"> *   try</span></div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;<span class="comment"> *     // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;<span class="comment"> *     $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="comment"> *     // spawn an object for the channel using a specified name</span></div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;<span class="comment"> *     $ts3_Channel = $ts3_VirtualServer-&gt;channelGetByName(&quot;I do not exist&quot;);</span></div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;<span class="comment"> *   catch(TeamSpeak3_Exception $e)</span></div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;<span class="comment"> *   {</span></div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;<span class="comment"> *     // print the error message returned by the server</span></div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;<span class="comment"> *     echo &quot;Error &quot; . $e-&gt;getCode() . &quot;: &quot; . $e-&gt;getMessage();</span></div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;<span class="comment"> *   }</span></div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;<span class="comment"> * \subsection example16 16. Save Connection State in Persistent Session Variable</span></div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;<span class="comment"> *   // start a PHP session</span></div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;<span class="comment"> *   session_start();</span></div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;<span class="comment"> *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987</span></div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;<span class="comment"> *   $ts3_VirtualServer = TeamSpeak3::factory(&quot;serverquery://username:password@127.0.0.1:10011/?server_port=9987&quot;);</span></div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;<span class="comment"> *   // save connection state (including login and selected virtual server)</span></div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;<span class="comment"> *   $_SESSION[&quot;_TS3&quot;] = serialize($ts3_VirtualServer);</span></div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;<span class="comment"> * \subsection example17 17. Restore Connection State from Persistent Session Variable</span></div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment"> *   // load framework files</span></div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;<span class="comment"> *   require_once(&quot;libraries/TeamSpeak3/TeamSpeak3.php&quot;);</span></div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;<span class="comment"> *   // start a PHP session</span></div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="comment"> *   session_start();</span></div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;<span class="comment"> *   // restore connection state</span></div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;<span class="comment"> *   $ts3_VirtualServer = unserialize($_SESSION[&quot;_TS3&quot;]);</span></div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;<span class="comment"> *   // send a text message to the server</span></div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;<span class="comment"> *   $ts3_VirtualServer-&gt;message(&quot;Hello World!&quot;);</span></div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;<span class="comment"> * Speed up new development and reduce maintenance costs by using the TS3 PHP Framework!</span></div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;<span class="comment"> */</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8c6eb96e4942c21c15d2738fe9c923ec.html">TeamSpeak3</a></li><li class="navelem"><a class="el" href="_team_speak3_8php.html">TeamSpeak3.php</a></li>
-    <li class="footer">Generated on Fri Jul 26 2013 20:29:54 for TeamSpeak 3 PHP Framework by
+    <li class="footer">Generated on Sun Sep 8 2013 15:14:41 for TeamSpeak 3 PHP Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

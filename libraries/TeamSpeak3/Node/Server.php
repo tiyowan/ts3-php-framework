@@ -4,7 +4,7 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Server.php 7/26/2013 8:28:58 scp@orilla $
+ * $Id: Server.php 8/15/2013 5:45:17 scp@orilla $
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.21
+ * @version   1.1.22
  * @author    Sven 'ScP' Paulsen
  * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
  */
@@ -627,7 +627,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
   {
     if($this->clientList === null)
     {
-      $clients = $this->request("clientlist -uid -away -voice -info -times -groups -icon -country -ip")->toAssocArray("clid");
+      $clients = $this->request("clientlist -uid -away -badges -voice -info -times -groups -icon -country -ip")->toAssocArray("clid");
 
       $this->clientList = array();
 
@@ -669,7 +669,8 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
   }
 
   /**
-   * Returns a list of client identities known by the virtual server.
+   * Returns a list of client identities known by the virtual server. By default, the server spits out 25 entries
+   * at once.
    *
    * @param  integer $offset
    * @param  integer $limit

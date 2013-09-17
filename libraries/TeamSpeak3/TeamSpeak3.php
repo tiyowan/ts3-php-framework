@@ -4,7 +4,7 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: TeamSpeak3.php 7/26/2013 8:28:58 scp@orilla $
+ * $Id: TeamSpeak3.php 8/15/2013 5:45:17 scp@orilla $
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.21
+ * @version   1.1.22
  * @author    Sven 'ScP' Paulsen
  * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
  */
@@ -59,7 +59,7 @@ class TeamSpeak3
   /**
    * TeamSpeak 3 PHP Framework version.
    */
-  const LIB_VERSION = "1.1.21";
+  const LIB_VERSION = "1.1.22";
 
   /*@
    * TeamSpeak 3 protocol separators.
@@ -639,6 +639,9 @@ class TeamSpeak3
  *
  * \subsection example1 1. Kick a single Client from a Virtual Server
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -654,6 +657,9 @@ class TeamSpeak3
  *
  * \subsection example2 2. Kick all Clients from a Virtual Server
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -664,16 +670,40 @@ class TeamSpeak3
  *   $ts3_VirtualServer->clientKick($arr_ClientList, TeamSpeak3::KICK_SERVER, "evil kick XD");
  * @endcode
  *
- * \subsection example3 3. Modify the Settings of each Virtual Server
+ * \subsection example3 3. Print the Nicknames of connected Android Clients
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
+ *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
+ *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
+ *
+ *   // query clientlist from virtual server and filter by platform
+ *   $arr_ClientList = $ts3_VirtualServer->clientList(array("client_platform" => "Android"));
+ *
+ *   // walk through list of clients
+ *   foreach($arr_ClientList as $ts3_Client)
+ *   {
+ *     echo $ts3_Client . " is using " . $ts3_Client["client_platform"] . "<br />\n";
+ *   }
+ * @endcode
+ *
+ * \subsection example4 4. Modify the Settings of each Virtual Server
+ * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the server instance
  *   $ts3_ServerInstance = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/");
  *
  *   // walk through list of virtual servers
  *   foreach($ts3_ServerInstance as $ts3_VirtualServer)
  *   {
- *     // modify the virtual servers hostbanner URL only
+ *     // modify the virtual servers hostbanner URL only using the ArrayAccess interface
  *     $ts3_VirtualServer["virtualserver_hostbanner_gfx_url"] = "http://www.example.com/banners/banner01_468x60.jpg";
+ *
+ *     // modify the virtual servers hostbanner URL only using property overloading
+ *     $ts3_VirtualServer->virtualserver_hostbanner_gfx_url = "http://www.example.com/banners/banner01_468x60.jpg";
  *
  *     // modify multiple virtual server properties at once
  *     $ts3_VirtualServer->modify(array(
@@ -684,20 +714,26 @@ class TeamSpeak3
  *   }
  * @endcode
  *
- * \subsection example4 4. Create a Privilege Key for a Server Group
+ * \subsection example5 5. Create a Privilege Key for a Server Group
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
- *   // spawn an object for the group using a specified nickname
+ *   // spawn an object for the group using a specified name
  *   $arr_ServerGroup = $ts3_VirtualServer->serverGroupGetByName("Admins");
  *
  *   // create the privilege key
  *   $ts3_PrivilegeKey = $arr_ServerGroup->privilegeKeyCreate();
  * @endcode
  *
- * \subsection example5 5. Modify the Permissions of Admins on each Virtual Server
+ * \subsection example6 6. Modify the Permissions of Admins on each Virtual Server
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the server instance
  *   $ts3_ServerInstance = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/");
  *
@@ -715,8 +751,11 @@ class TeamSpeak3
  *   }
  * @endcode
  *
- * \subsection example6 6. Create a new Virtual Server
+ * \subsection example7 7. Create a new Virtual Server
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the server instance
  *   $ts3_ServerInstance = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/");
  *
@@ -730,8 +769,11 @@ class TeamSpeak3
  *   ));
  * @endcode
  *
- * \subsection example7 7. Create a hierarchical Channel Stucture
+ * \subsection example8 8. Create a hierarchical Channel Stucture
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -753,8 +795,11 @@ class TeamSpeak3
  *   ));
  * @endcode
  *
- * \subsection example8 8. Send a Text Message to outdated Clients
+ * \subsection example9 9. Send a Text Message to outdated Clients
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -775,8 +820,11 @@ class TeamSpeak3
  *   }
  * @endcode
  *
- * \subsection example9 9. Check if the Server Instance is Outdated or Blacklisted
+ * \subsection example10 10. Check if the Server Instance is Outdated or Blacklisted
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the server instance
  *   $ts3_ServerInstance = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/");
  *
@@ -799,8 +847,11 @@ class TeamSpeak3
  *   }
  * @endcode
  *
- * \subsection example10 10. Create a simple TSViewer for your Website
+ * \subsection example11 11. Create a simple TSViewer for your Website
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -808,8 +859,11 @@ class TeamSpeak3
  *   echo $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("images/viewericons/", "images/countryflags/", "data:image"));
  * @endcode
  *
- * \subsection example11 11. Update all outdated Audio Codecs to their Opus equivalent
+ * \subsection example12 12. Update all outdated Audio Codecs to their Opus equivalent
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -827,8 +881,11 @@ class TeamSpeak3
  *   }
  * @endcode
  *
- * \subsection example12 12. Display the Avatar of a connected User
+ * \subsection example13 13. Display the Avatar of a connected User
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
  *
@@ -843,8 +900,11 @@ class TeamSpeak3
  *   echo $avatar;
  * @endcode
  *
- * \subsection example13 13. Create a Simple Bot waiting for Events
+ * \subsection example14 14. Create a Simple Bot waiting for Events
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
  *   // connect to local server in non-blocking mode, authenticate and spawn an object for the virtual server on port 9987
  *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987&blocking=0");
  *
@@ -864,8 +924,14 @@ class TeamSpeak3
  *   }
  * @endcode
  *
- * \subsection example14 14. Handle Errors using Exceptions
+ * \subsection example15 15. Handle Errors using Exceptions and Custom Error Messages
  * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
+ *   // register custom error message (supported placeholders are: %file, %line, %code and %mesg)
+ *   TeamSpeak3_Exception::registerCustomMessage(0x300, "The specified channel does not exist; server said: %mesg");
+ *
  *   try
  *   {
  *     // connect to local server, authenticate and spawn an object for the virtual server on port 9987
@@ -879,6 +945,36 @@ class TeamSpeak3
  *     // print the error message returned by the server
  *     echo "Error " . $e->getCode() . ": " . $e->getMessage();
  *   }
+ * @endcode
+ *
+ * \subsection example16 16. Save Connection State in Persistent Session Variable
+ * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
+ *   // start a PHP session
+ *   session_start();
+ *
+ *   // connect to local server, authenticate and spawn an object for the virtual server on port 9987
+ *   $ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
+ *
+ *   // save connection state (including login and selected virtual server)
+ *   $_SESSION["_TS3"] = serialize($ts3_VirtualServer);
+ * @endcode
+ *
+ * \subsection example17 17. Restore Connection State from Persistent Session Variable
+ * @code
+ *   // load framework files
+ *   require_once("libraries/TeamSpeak3/TeamSpeak3.php");
+ *
+ *   // start a PHP session
+ *   session_start();
+ *
+ *   // restore connection state
+ *   $ts3_VirtualServer = unserialize($_SESSION["_TS3"]);
+ *
+ *   // send a text message to the server
+ *   $ts3_VirtualServer->message("Hello World!");
  * @endcode
  *
  * Speed up new development and reduce maintenance costs by using the TS3 PHP Framework!

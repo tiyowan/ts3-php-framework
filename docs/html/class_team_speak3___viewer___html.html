@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="TeamSpeak.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TeamSpeak 3 PHP Framework
-   &#160;<span id="projectnumber">1.1.21</span>
+   &#160;<span id="projectnumber">1.1.22</span>
    </div>
    <div id="projectbrief">Copyright © Planet TeamSpeak. All rights reserved.</div>
   </td>
@@ -671,7 +671,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_html_8php_source.html#l00290">290</a> of file <a class="el" href="_html_8php_source.html">Html.php</a>.</p>
 
-<p>References <a class="el" href="_convert_8php_source.html#l00080">TeamSpeak3_Helper_Convert\codec()</a>, <a class="el" href="_convert_8php_source.html#l00104">TeamSpeak3_Helper_Convert\groupType()</a>, <a class="el" href="_channel_8php_source.html#l00389">TeamSpeak3_Node_Channel\isSpacer()</a>, <a class="el" href="_convert_8php_source.html#l00067">TeamSpeak3_Helper_Convert\seconds()</a>, and <a class="el" href="_convert_8php_source.html#l00297">TeamSpeak3_Helper_Convert\version()</a>.</p>
+<p>References <a class="el" href="_convert_8php_source.html#l00080">TeamSpeak3_Helper_Convert\codec()</a>, <a class="el" href="_convert_8php_source.html#l00104">TeamSpeak3_Helper_Convert\groupType()</a>, <a class="el" href="_channel_8php_source.html#l00389">TeamSpeak3_Node_Channel\isSpacer()</a>, <a class="el" href="_convert_8php_source.html#l00067">TeamSpeak3_Helper_Convert\seconds()</a>, and <a class="el" href="_convert_8php_source.html#l00315">TeamSpeak3_Helper_Convert\versionShort()</a>.</p>
 
 <p>Referenced by <a class="el" href="_html_8php_source.html#l00126">fetchObject()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  {</div>
@@ -685,7 +685,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    elseif($this-&gt;currObj instanceof <a class="code" href="class_team_speak3___node___client.html" title="Class describing a TeamSpeak 3 client and all it&#39;s parameters. ">TeamSpeak3_Node_Client</a>)</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;ID: &quot;</span> . $this-&gt;currObj-&gt;getId() . <span class="stringliteral">&quot; | Version: &quot;</span> . <a class="code" href="class_team_speak3___helper___convert.html#a3df8e522842d6a197ee095e7e32af88a" title="Returns a client-like formatted version of the TeamSpeak 3 version string. ">TeamSpeak3_Helper_Convert::version</a>($this-&gt;currObj[<span class="stringliteral">&quot;client_version&quot;</span>]) . <span class="stringliteral">&quot; | Platform: &quot;</span> . $this-&gt;currObj[<span class="stringliteral">&quot;client_platform&quot;</span>];</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;ID: &quot;</span> . $this-&gt;currObj-&gt;getId() . <span class="stringliteral">&quot; | Version: &quot;</span> . <a class="code" href="class_team_speak3___helper___convert.html#a0ce6ada52807c57128bdd7a001f4de43" title="Returns a client-like short-formatted version of the TeamSpeak 3 version string. ">TeamSpeak3_Helper_Convert::versionShort</a>($this-&gt;currObj[<span class="stringliteral">&quot;client_version&quot;</span>]) . <span class="stringliteral">&quot; | Platform: &quot;</span> . $this-&gt;currObj[<span class="stringliteral">&quot;client_platform&quot;</span>];</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    elseif($this-&gt;currObj instanceof <a class="code" href="class_team_speak3___node___servergroup.html" title="Class describing a TeamSpeak 3 server group and all it&#39;s parameters. ">TeamSpeak3_Node_Servergroup</a> || $this-&gt;currObj instanceof <a class="code" href="class_team_speak3___node___channelgroup.html" title="Class describing a TeamSpeak 3 channel group and all it&#39;s parameters. ">TeamSpeak3_Node_Channelgroup</a>)</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    {</div>
@@ -906,7 +906,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_html_8php_source.html#l00407">407</a> of file <a class="el" href="_html_8php_source.html">Html.php</a>.</p>
 
-<p>References <a class="el" href="_team_speak3_8php_source.html#l00309">TeamSpeak3\factory()</a>, <a class="el" href="_html_8php_source.html#l00654">getImage()</a>, and <a class="el" href="_convert_8php_source.html#l00315">TeamSpeak3_Helper_Convert\imageMimeType()</a>.</p>
+<p>References <a class="el" href="_team_speak3_8php_source.html#l00309">TeamSpeak3\factory()</a>, <a class="el" href="_html_8php_source.html#l00654">getImage()</a>, and <a class="el" href="_convert_8php_source.html#l00331">TeamSpeak3_Helper_Convert\imageMimeType()</a>.</p>
 
 <p>Referenced by <a class="el" href="_html_8php_source.html#l00385">getSuffixIcon()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  {</div>
@@ -978,7 +978,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_html_8php_source.html#l00455">455</a> of file <a class="el" href="_html_8php_source.html">Html.php</a>.</p>
 
-<p>References <a class="el" href="_team_speak3_8php_source.html#l00094">TeamSpeak3\CODEC_CELT_MONO</a>, <a class="el" href="_team_speak3_8php_source.html#l00096">TeamSpeak3\CODEC_OPUS_MUSIC</a>, <a class="el" href="_team_speak3_8php_source.html#l00309">TeamSpeak3\factory()</a>, <a class="el" href="_html_8php_source.html#l00654">getImage()</a>, <a class="el" href="_convert_8php_source.html#l00315">TeamSpeak3_Helper_Convert\imageMimeType()</a>, and <a class="el" href="_channel_8php_source.html#l00389">TeamSpeak3_Node_Channel\isSpacer()</a>.</p>
+<p>References <a class="el" href="_team_speak3_8php_source.html#l00094">TeamSpeak3\CODEC_CELT_MONO</a>, <a class="el" href="_team_speak3_8php_source.html#l00096">TeamSpeak3\CODEC_OPUS_MUSIC</a>, <a class="el" href="_team_speak3_8php_source.html#l00309">TeamSpeak3\factory()</a>, <a class="el" href="_html_8php_source.html#l00654">getImage()</a>, <a class="el" href="_convert_8php_source.html#l00331">TeamSpeak3_Helper_Convert\imageMimeType()</a>, and <a class="el" href="_channel_8php_source.html#l00389">TeamSpeak3_Node_Channel\isSpacer()</a>.</p>
 
 <p>Referenced by <a class="el" href="_html_8php_source.html#l00385">getSuffixIcon()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  {</div>
@@ -1072,7 +1072,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_html_8php_source.html#l00525">525</a> of file <a class="el" href="_html_8php_source.html">Html.php</a>.</p>
 
-<p>References <a class="el" href="_team_speak3_8php_source.html#l00309">TeamSpeak3\factory()</a>, <a class="el" href="_html_8php_source.html#l00654">getImage()</a>, and <a class="el" href="_convert_8php_source.html#l00315">TeamSpeak3_Helper_Convert\imageMimeType()</a>.</p>
+<p>References <a class="el" href="_team_speak3_8php_source.html#l00309">TeamSpeak3\factory()</a>, <a class="el" href="_html_8php_source.html#l00654">getImage()</a>, and <a class="el" href="_convert_8php_source.html#l00331">TeamSpeak3_Helper_Convert\imageMimeType()</a>.</p>
 
 <p>Referenced by <a class="el" href="_html_8php_source.html#l00385">getSuffixIcon()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;  {</div>
@@ -1312,7 +1312,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_team_speak3___viewer___html.html">TeamSpeak3_Viewer_Html</a></li>
-    <li class="footer">Generated on Fri Jul 26 2013 20:29:56 for TeamSpeak 3 PHP Framework by
+    <li class="footer">Generated on Sun Sep 8 2013 15:14:43 for TeamSpeak 3 PHP Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>
