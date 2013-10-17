@@ -48,10 +48,10 @@ var NAVTREEINDEX =
 [
 "_adapter_2_abstract_8php.html",
 "class_team_speak3___adapter___file_transfer.html#ab1bd002b22a8121e8efa5ab4ccd36fa5",
-"class_team_speak3___helper___uri.html#a9878d6f37ef25b9e0666cf8cd9043515",
-"class_team_speak3___node___client.html#a63fd3d66404a46a1ca7fb0795a83818e",
-"class_team_speak3___node___server.html#a69f43173d45cc599b05a4e6f9bef5baa",
-"class_team_speak3___viewer___html.html#aca40f5b5b2a6f778e7913a9ed203a316"
+"class_team_speak3___helper___uri.html#a94c765c6262844caad188417a77adda8",
+"class_team_speak3___node___client.html#a63fb203f511e99625428f70f0525950c",
+"class_team_speak3___node___server.html#a6866211126530af14d9c60976960b39f",
+"class_team_speak3___viewer___html.html#ac7d4636a787439c500691818edeae752"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

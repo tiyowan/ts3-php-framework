@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"class_team_speak3___helper___uri.html#a94c765c6262844caad188417a77adda8":[2,0,29,25],
 "class_team_speak3___helper___uri.html#a9878d6f37ef25b9e0666cf8cd9043515":[2,0,29,14],
 "class_team_speak3___helper___uri.html#aa496602a698ed5690d48ec4326f8c793":[2,0,29,9],
 "class_team_speak3___helper___uri.html#aa60355cb6dee8fac8ad14a171c6b36ab":[2,0,29,29],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "class_team_speak3___node___client.html#a5a6888304aca8d5f12fecb460b0ef6d2":[2,0,33,48],
 "class_team_speak3___node___client.html#a5e9be0418e0cc969d47f4b7475adb21d":[2,0,33,66],
 "class_team_speak3___node___client.html#a5ec1034f4f801800ab5a86741c66bbd0":[2,0,33,19],
-"class_team_speak3___node___client.html#a62a1fed92852d1b91b7a5f6036a867f3":[2,0,33,28],
-"class_team_speak3___node___client.html#a63fb203f511e99625428f70f0525950c":[2,0,33,46]
+"class_team_speak3___node___client.html#a62a1fed92852d1b91b7a5f6036a867f3":[2,0,33,28]
 };

@@ -9,6 +9,14 @@
    ! Important - Take note!
 ===============================================================================
 
+=== Release 1.1.23 - 11 Oct 2013 ===
+ - TeamSpeak3_Node_Server::channelSpacerCreate() now accepts an additional
+   parameter to specifiy the channel_maxclients for the spacer (defaults to 0)
+ - fixed a stupid typo in TeamSpeak3_Node_Server::channelSpacerCreate() that 
+   was reported by barricas
+ - fixed "Serialization of 'Closure' is not allowed" errors
+ * public legacy release
+
 === Release 1.1.22 - 15 Aug 2013 ===
  ! upgrading your servers to 3.0.9 (build >= 1378383061) is recommended
  + added TeamSpeak3_Helper_Convert::versionShort()

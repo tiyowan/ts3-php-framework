@@ -8,7 +8,7 @@ var class_team_speak3___node___server =
     [ "channelDelete", "class_team_speak3___node___server.html#a2fda0933d13a8ffad575bf5c33be6aaa", null ],
     [ "channelMove", "class_team_speak3___node___server.html#a318977af4cbbe51289e68bdbd57a9342", null ],
     [ "channelIsSpacer", "class_team_speak3___node___server.html#af1ace8782c92dabd6bf1d5fc2476295a", null ],
-    [ "channelSpacerCreate", "class_team_speak3___node___server.html#aaeff570ebf53790caad68344897fec61", null ],
+    [ "channelSpacerCreate", "class_team_speak3___node___server.html#aba6de5270fed2d117ad5cdb3f5503b43", null ],
     [ "channelSpacerGetType", "class_team_speak3___node___server.html#a4b65797b14ce1dbc5ab123840216d8d5", null ],
     [ "channelSpacerGetAlign", "class_team_speak3___node___server.html#a34911a30ab894a628124c6e8ec3131f1", null ],
     [ "channelPermList", "class_team_speak3___node___server.html#abf2cdfe68a150d47712165b91db12bbc", null ],

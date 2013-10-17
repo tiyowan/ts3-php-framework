@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="TeamSpeak.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TeamSpeak 3 PHP Framework
-   &#160;<span id="projectnumber">1.1.22</span>
+   &#160;<span id="projectnumber">1.1.23</span>
    </div>
    <div id="projectbrief">Copyright © Planet TeamSpeak. All rights reserved.</div>
   </td>
@@ -241,7 +241,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_file_transfer_8php_source.html#l00041">41</a> of file <a class="el" href="_file_transfer_8php_source.html">FileTransfer.php</a>.</p>
 
-<p>References <a class="el" href="_signal_8php_source.html#l00187">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_profiler_8php_source.html#l00047">TeamSpeak3_Helper_Profiler\init()</a>, and <a class="el" href="_adapter_2_abstract_8php_source.html#l00129">TeamSpeak3_Adapter_Abstract\initTransport()</a>.</p>
+<p>References <a class="el" href="_signal_8php_source.html#l00204">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_profiler_8php_source.html#l00047">TeamSpeak3_Helper_Profiler\init()</a>, and <a class="el" href="_adapter_2_abstract_8php_source.html#l00129">TeamSpeak3_Adapter_Abstract\initTransport()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    $this-&gt;<a class="code" href="class_team_speak3___adapter___abstract.html#a87920747e1eb4a25396c5b5e5567094b" title="Loads the transport object object used for the connection adapter and passes a given set of options...">initTransport</a>($this-&gt;options);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    $this-&gt;transport-&gt;setAdapter($this);</div>
@@ -292,7 +292,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_file_transfer_8php_source.html#l00071">71</a> of file <a class="el" href="_file_transfer_8php_source.html">FileTransfer.php</a>.</p>
 
-<p>References <a class="el" href="_signal_8php_source.html#l00187">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00105">TeamSpeak3_Adapter_Abstract\getProfiler()</a>, and <a class="el" href="_adapter_2_abstract_8php_source.html#l00115">TeamSpeak3_Adapter_Abstract\getTransport()</a>.</p>
+<p>References <a class="el" href="_signal_8php_source.html#l00204">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00105">TeamSpeak3_Adapter_Abstract\getProfiler()</a>, and <a class="el" href="_adapter_2_abstract_8php_source.html#l00115">TeamSpeak3_Adapter_Abstract\getTransport()</a>.</p>
 
 <p>Referenced by <a class="el" href="_file_transfer_8php_source.html#l00134">download()</a>, and <a class="el" href="_file_transfer_8php_source.html#l00093">upload()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
@@ -358,7 +358,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_file_transfer_8php_source.html#l00093">93</a> of file <a class="el" href="_file_transfer_8php_source.html">FileTransfer.php</a>.</p>
 
-<p>References <a class="el" href="_signal_8php_source.html#l00187">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00105">TeamSpeak3_Adapter_Abstract\getProfiler()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00115">TeamSpeak3_Adapter_Abstract\getTransport()</a>, and <a class="el" href="_file_transfer_8php_source.html#l00071">init()</a>.</p>
+<p>References <a class="el" href="_signal_8php_source.html#l00204">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00105">TeamSpeak3_Adapter_Abstract\getProfiler()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00115">TeamSpeak3_Adapter_Abstract\getTransport()</a>, and <a class="el" href="_file_transfer_8php_source.html#l00071">init()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    $this-&gt;<a class="code" href="class_team_speak3___adapter___file_transfer.html#a56c9d8b7f347dcc70787956d8a389a17" title="Sends a valid file transfer key to the server to initialize the file transfer. ">init</a>($ftkey);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
@@ -441,7 +441,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_file_transfer_8php_source.html#l00134">134</a> of file <a class="el" href="_file_transfer_8php_source.html">FileTransfer.php</a>.</p>
 
-<p>References <a class="el" href="_signal_8php_source.html#l00187">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00105">TeamSpeak3_Adapter_Abstract\getProfiler()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00115">TeamSpeak3_Adapter_Abstract\getTransport()</a>, <a class="el" href="_file_transfer_8php_source.html#l00071">init()</a>, and <a class="el" href="_file_transfer_8php_source.html#l00181">passthru()</a>.</p>
+<p>References <a class="el" href="_signal_8php_source.html#l00204">TeamSpeak3_Helper_Signal\getInstance()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00105">TeamSpeak3_Adapter_Abstract\getProfiler()</a>, <a class="el" href="_adapter_2_abstract_8php_source.html#l00115">TeamSpeak3_Adapter_Abstract\getTransport()</a>, <a class="el" href="_file_transfer_8php_source.html#l00071">init()</a>, and <a class="el" href="_file_transfer_8php_source.html#l00181">passthru()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    $this-&gt;<a class="code" href="class_team_speak3___adapter___file_transfer.html#a56c9d8b7f347dcc70787956d8a389a17" title="Sends a valid file transfer key to the server to initialize the file transfer. ">init</a>($ftkey);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
@@ -804,7 +804,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_team_speak3___adapter___file_transfer.html">TeamSpeak3_Adapter_FileTransfer</a></li>
-    <li class="footer">Generated on Sun Sep 8 2013 15:14:41 for TeamSpeak 3 PHP Framework by
+    <li class="footer">Generated on Fri Oct 11 2013 23:35:43 for TeamSpeak 3 PHP Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

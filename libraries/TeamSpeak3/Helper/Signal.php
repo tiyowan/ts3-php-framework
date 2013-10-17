@@ -4,7 +4,7 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Signal.php 8/15/2013 5:45:17 scp@orilla $
+ * $Id: Signal.php 10/11/2013 11:35:21 scp@orilla $
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.22
+ * @version   1.1.23
  * @author    Sven 'ScP' Paulsen
  * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
  */
@@ -72,6 +72,23 @@ class TeamSpeak3_Helper_Signal
 
     return $return;
   }
+  
+  /**
+   * Generates a MD5 hash based on a given callback.
+   *
+   * @param  mixed  $callback
+   * @param  string
+   * @return void
+   */
+  public function getCallbackHash($callback)
+  {
+    if(!is_callable($callback, TRUE, $callable_name))
+    {
+      throw new TeamSpeak3_Helper_Signal_Exception("invalid callback specified");
+    }
+    
+    return md5($callable_name);
+  }
 
   /**
    * Subscribes to a signal and returns the signal handler.
@@ -87,7 +104,7 @@ class TeamSpeak3_Helper_Signal
       $this->sigslots[$signal] = array();
     }
 
-    $index = md5(serialize($callback));
+    $index = $this->getCallbackHash($callback);
 
     if(!array_key_exists($index, $this->sigslots[$signal]))
     {
@@ -113,7 +130,7 @@ class TeamSpeak3_Helper_Signal
 
     if($callback !== null)
     {
-      $index = md5(serialize($callback));
+      $index = $this->getCallbackHash($callback);
 
       if(!array_key_exists($index, $this->sigslots[$signal]))
       {

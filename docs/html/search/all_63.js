@@ -36,7 +36,7 @@ var searchData=
   ['channelpermassign',['channelPermAssign',['../class_team_speak3___node___server.html#a912200d0dad1ac57581786d8f09948e4',1,'TeamSpeak3_Node_Server']]],
   ['channelpermlist',['channelPermList',['../class_team_speak3___node___server.html#abf2cdfe68a150d47712165b91db12bbc',1,'TeamSpeak3_Node_Server']]],
   ['channelpermremove',['channelPermRemove',['../class_team_speak3___node___server.html#a7d88676f4ef80466b1a24945c49a006b',1,'TeamSpeak3_Node_Server']]],
-  ['channelspacercreate',['channelSpacerCreate',['../class_team_speak3___node___server.html#aaeff570ebf53790caad68344897fec61',1,'TeamSpeak3_Node_Server']]],
+  ['channelspacercreate',['channelSpacerCreate',['../class_team_speak3___node___server.html#aba6de5270fed2d117ad5cdb3f5503b43',1,'TeamSpeak3_Node_Server']]],
   ['channelspacergetalign',['channelSpacerGetAlign',['../class_team_speak3___node___server.html#a34911a30ab894a628124c6e8ec3131f1',1,'TeamSpeak3_Node_Server']]],
   ['channelspacergettype',['channelSpacerGetType',['../class_team_speak3___node___server.html#a4b65797b14ce1dbc5ab123840216d8d5',1,'TeamSpeak3_Node_Server']]],
   ['char_2ephp',['Char.php',['../_char_8php.html',1,'']]],

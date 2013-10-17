@@ -4,7 +4,7 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Server.php 8/15/2013 5:45:17 scp@orilla $
+ * $Id: Server.php 10/11/2013 11:35:21 scp@orilla $
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.22
+ * @version   1.1.23
  * @author    Sven 'ScP' Paulsen
  * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
  */
@@ -196,19 +196,21 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * @param  mixed   $type
    * @param  integer $align
    * @param  integer $order
+   * @param  integer $maxclients
    * @throws TeamSpeak3_Adapter_ServerQuery_Exception
    * @return integer
    */
-  public function channelSpacerCreate($ident, $type = TeamSpeak3::SPACER_SOLIDLINE, $align = TeamSpeak3::SPACER_ALIGN_REPEAT, $order = null)
+  public function channelSpacerCreate($ident, $type = TeamSpeak3::SPACER_SOLIDLINE, $align = TeamSpeak3::SPACER_ALIGN_REPEAT, $order = null, $maxclients = 0)
   {
     $properties = array(
       "channel_name_phonetic" => "channel spacer",
-      "channel_codec" => TeamSpeak3::OPUS_VOICE,
+      "channel_codec" => TeamSpeak3::CODEC_OPUS_VOICE,
       "channel_codec_quality" => 0x00,
       "channel_flag_permanent" => TRUE,
       "channel_flag_maxclients_unlimited" => FALSE,
       "channel_flag_maxfamilyclients_unlimited" => FALSE,
       "channel_flag_maxfamilyclients_inherited" => FALSE,
+      "channel_maxclients" => $maxclients,
       "channel_order" => $order,
     );
 

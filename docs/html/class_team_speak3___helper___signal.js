@@ -1,6 +1,7 @@
 var class_team_speak3___helper___signal =
 [
     [ "emit", "class_team_speak3___helper___signal.html#a26e8fc61637d146b0347b7c9e09587ab", null ],
+    [ "getCallbackHash", "class_team_speak3___helper___signal.html#ada301980bc0f9b8f310e8656972b6a35", null ],
     [ "subscribe", "class_team_speak3___helper___signal.html#a058ad6105e05a7b8c620b9446c545984", null ],
     [ "unsubscribe", "class_team_speak3___helper___signal.html#a74e337835a70aa10894202bb43d8c30b", null ],
     [ "getSignals", "class_team_speak3___helper___signal.html#aa690a091efef853c4a47d7b7e7363c03", null ],
